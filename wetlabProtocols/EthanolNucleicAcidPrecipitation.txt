@@ -1,0 +1,13 @@
+Ethanol Precipitation of Nucleic Acids
+Lowe Lab Standard Operating Procedure
+Prepared by Riley J. Mangan
+
+Protocol
+1. Add 1/10 volume of 3M na-Acetate pH 5.2, and 2 to 2.5 volumes of ice-cold 100% ethanol to the DNA sample.
+2. Mix and store at -20C for at least 1 hour to precipitate the DNA.
+3. Recover the precipitated DNA by centrifugation at full speed in a microcentrifuge for 15-20 minutes.
+4. Pour off the ethanol and wash the pellet twice with room-temperature 70% ethanol.
+5. Allow the DNA pellet to air-dry.
+6. Resuspend the DNA in a suitable volume of sterile TE buffer or distilled water.
+END OF PROTOCOL
+

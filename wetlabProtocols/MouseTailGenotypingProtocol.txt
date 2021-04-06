@@ -1,0 +1,80 @@
+Genotyping of Mouse Tail DNA
+
+Making 70% ethanol
+1. Prepare the 70% ethanol in a 50 ml falcon tube (per 50 ml):
+    100% ethanol: 35 ml
+    dH2O: 15 ml
+
+Making TE Buffer
+1. Prepare the TE buffer in a 50 ml falcon tube (per 50 ml):
+    1M Tris-HCl: 5 ml
+    0.5M EDTA: 1 ml
+    dH2O: 44 ml
+
+DNA Extraction from Tails
+1. Cut off a small piece from the tip of the tail of the mouse and place it in an Eppendorf tube. Store it in -20oC until DNA extraction.
+2. Prepare the tail lysis buffer (per 1 ml):
+    1M Tris pH 8.5: 100 ul
+    0.5M EDTA: 20 ul
+    10% SDS: 20 ul
+    5M NaCl: 40 ul
+    dH2O: 820 ul
+3. Add 500 ul of tail lysis buffer in the Eppendorf tube.
+4. Add 2.5 ul of Proteinase K in the Eppendorf tube.
+5. Incubate at 55oC overnight, while gently rotating.
+6. Centrifuge the tail digest at 14,000 rcf for 5 minutes.
+7. Meanwhile, in a new Eppendorf tube, add 500 ul of isopropanol.
+8. Decant the supernatant into the tube with isopropanol, and invert around 5 times.
+9. Centrifuge at 14,000 rcf for 5 minutes.
+10. Remove the supernatant with fresh P1000 tip.
+11. Add 500 ul of 70% ethanol in the tube.
+12. Centrifuge at 14,000 rcf for 5 minutes.
+13. Remove the supernatant with fresh P1000 tip.
+14. Air dry for around 5 minutes.
+15. Add 50 ul (for small/no pellet) or 100 ul (for large pellet) of TE buffer.
+16. Incubate at 60oC for 1 hour.
+17. Briefly vortex the tube.
+18. Incubate at room temperature overnight.
+19. Store the tube at 4oC until PCR (if it's soon) or at -20oC for a longer period of time.
+
+PCR
+1. If the primers are dry, spin down the tubes and resuspend them in any elution buffer such that the final concentration is 100 uM. (If the amount of oligo is 33.1 nmoles, add 331 ul of buffer to have 100 uM.) If the primers are already in solution, take them out from 4oC fridge.
+2. Take out the DreamTaq Green PCR Master Mix (2X) from the -20oC freezer, and thaw it in dark (in the drawer).
+3. Prepare the primer mix by having 0.1 ul of forward and 0.1 ul of reverse primer for each reaction. Vortex the primer mix briefly, then spin down.
+4. Prepare the master mix in an Eppendorf tube (per PCR sample) and mix by flicking:
+    Primer mix: 0.2 ul
+    DreamTaq Green PCR Master Mix (2X): 10 ul
+    dH2O: 10 ul
+5. In each PCR tube, add 0.5 ul of DNA (if you resuspended in 50 ul) or 1 ul (if you resuspended in 100 ul) of TE buffer (tap the tube to mix before adding). For the negative control, add 0.5 or 1 ul of dH2O in the PCR tube.
+6. Add 20.2 ul of master mix in each PCR tube.
+7. Run the PCR program:
+    Stage 1:
+        94.0oC - 3 min
+    Stage 2 (32 cycles):
+        94.0oC - 30 sec
+        63.0oC - 1 min
+        72.0oC - 1 min
+    Stage 3:
+        72.0oC - 7 min
+    Final hold: 4oC
+
+Agarose Gel Electrophoresis
+1. Make 1.5% agarose gel:
+    a. Place a weighing paper on the weighing scale inside the chemical hood, and tare the scale.
+    b. Measure 0.75 grams of agarose and pour into the 250 ml Erlenmeyer flask.
+    c. Add 50 ml of 1X TAE buffer in the flask.
+    d. Using tissue paper, make a stopper and clog the flask.
+    e. Microwave until the solution is clear.
+    f. Add 5 ul of SYBR Safe solution and mix by swirling.
+    g. Use the Owl EasyCast B1A (the smallest gel apparatus). Place the gel tray in casting position, and use the 10-well comb with the 1.5 mm side.
+    h. Pour the gel and wait for it to solidify (around 20 minutes).
+2. After the PCR, there is no need to add a DNA loading dye in each sample, since the DreamTaq Green PCR Master Mix already contains DreamTaq Green Buffer.
+3. When the gel solidifies, remove the comb, turn the gel tray into the running position, and pour 1X TAE buffer until it covers the gel.
+4. In the first well, load 10 ul of GeneRuler 1 kb Plus DNA ladder (pre-mixed with Purple Gel Loading Dye).
+5. In the following wells, load all of the samples (20 ul).
+6. Run the gel at 120 V for 40 minutes. Check in between to make sure that the DNA does not migrate out of the gel. You can stop the gel before 40 minutes if it has run enough.
+7. After running the gel, take it to the room of Bio-Rad Chemidoc XRS imaging system. Place the gel inside the UV transilluminator and login to the computer using your NetID and password.
+8. Open the Image Lab software and create a new protocol. Select the Application, the gel type and the image exposure (start with automatic exposure and adjust it later). Turn off the 'Highlight saturated pixels' option.
+9. Click on Position Gel. Adjust the gel's position and the zoom level. Then click on Run Protocol.
+10. After you get acquire the gel image, save it on the computer and either email it to yourself or upload it to a USB. Delete the file on the local computer.
+11. Take out the gel and put it back in the casting tray. Clean the UV transilluminator with distilled water. Pour out the running buffer in the sink and throw away the gel in the styrofoam box inside the chemical hood.

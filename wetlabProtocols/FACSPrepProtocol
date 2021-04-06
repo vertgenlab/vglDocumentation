@@ -1,0 +1,18 @@
+FACS Prep Protocol from Fernando(Silver Lab)
+
+This protocol is for embryonic mouse brains from E15.5 to E17.5.
+
+If using directly for RNA: sort cells directly in 350-500 uL RLT buffer with B-Mercaptoethanol (10 uL/1 mL of buffer), depending on the number of cells to be sorted. Typically, 1 million of sorted cell add 1 mL of volume to the collection tube. After sorting, the tubes should immediated be frozen at -80C.
+
+1. Dissect in ice-cold PBS (without magnesium or calcium to minimize clumping).
+2. Dissect out cortices, removing meninges. Cortices grabbed with sterile cut pipette p1000 tip, taking care to suck up as little liquid as possible with cortices (or grab carefully with tweezers).
+3. Remove PBS and place the cortex (or 2 cortices at a time if needed) in 250 uL 0.25% trypsin-EDTA supplemented with 1/1000 DNAse I*.
+4. Put at 37C for 10 minutes.
+5. Remove trypsin and add 1 mL ice-cold 10% FBS/HBSS/Propidium iodide (12.5 uL/10 mL)**/DNAse I (1/1000). [FOR RED FLUORESCENCE USE DAPI (5 ug/mL) INSTEAD OF PROPIDIUM IODIDE] FBS will inactivate trypsin.
+6. Gently titrate 10 times with small bore fire-polished glass pipette or p1000 pipette.
+7. Put cells through 30 um cell strainer into sorting tubes.
+8. Keep on ice.
+9. Ready to sort.
+
+*DNAse I (RNAse free) from NEB cat# M0303S
+**PI from Invitrogen P3566

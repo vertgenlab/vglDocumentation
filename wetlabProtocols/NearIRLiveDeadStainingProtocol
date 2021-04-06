@@ -1,0 +1,20 @@
+Near-IR LIVE/DEAD Staining Protocol
+Dye Preparation
+
+1. Bring one vial of the fluorescent reactive dye (component A) and the vial of anhydrous DMSO (component B) to room temperature before removing the caps.
+2. Add 50 uL of DMSO to the vial of reactive dye. Mix well and visually confirm that all of the dye has dissolved.
+3. Use the solution of reactive dye as soon as possible, ideally within a few hours. Unused protions may be used for up to 2 weeks if stored at or below -20C, protected from light and moisture.
+
+Cell Staining
+
+Buffers appropriate for cell staining include phosphate-buffered saline (PBS), Hanks' Balanced Salt Solution (HBSS), and Dulbecco's PBS (D-PBS), without extraneous proteins such as bovine serum albumin or serum. 
+
+1. Centrifuge a sample of cells in suspension containing at least 1x10^6 cells. Discard the supernatant.
+2. Wash the cells once with 1 mL of PBS.
+3. Resuspend the cells in 1 mL of PBS.
+4. Count the cells and adjust the density with PBS to 1x10^6 cells in a 1 mL volume.
+5. Add 1 uL of the reconstituted fluorescent reactive dye to 1 mL of the cell suspension and mix well.
+6. Incubate at romm temperature or on ice for 30 minutes, PROTECTED FROM LIGHT.
+7. Wash the cells twice with 1 mL of PBS with 1% bovine serum albumin.
+8. Resuspend in 1 mL of PBS with 1% bovine serum albumin.
+11. Analyze the cell suspension by flow cytometry using the appropriate excitation and detection channel. For Near-IR fluorescent reactive dye: 633/635 nm excitation, ~780 nm detection.

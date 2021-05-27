@@ -1,0 +1,6 @@
+tableSize 5
+smallSize 11
+position 1 2 3 11 111
+qGap 12 19 24 43 400
+tGap 12 19 24 43 400
+bothGap 25 40 50 90 670

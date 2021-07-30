@@ -1,0 +1,104 @@
+\documentclass{article} % This command is used to set the type of document you are working on such as an article, book, or presenation
+\usepackage{amsmath}  % This package allows the use of a large range of mathematical formula, commands, and symbols
+
+\usepackage[linguistics]{forest}
+\begin{document}
+
+\title{multiFaAcceleration: A program for the measurement of mutation velocity and acceleration from a four-species multiple alignment}
+\author{Riley J. Mangan}
+\maketitle
+
+\section{Usage}
+multiFaAcceleration - Performs velocity and acceleration on a four way multiple alignment in multiFa format.\par
+A four way multiple alignment must contain four species (index 0 to 3) in the topology that aln[0] is the most derived and species 1 to 3 are successive outgroups.\par
+Three bed files are returned. The first produces the velocity score, the second returns the acceleration score, and the third returns the initial velocity score for each window of the genome for aln[0].\par
+multiFaAcceleration chromName in.fa velocity.bed acceleration.bed initialVelocity.bed\par
+
+\section{Branch Length Calculation}
+
+Consider a phylogenetic tree with extant species $S_0:S_3$, extinct ancestors $A_0:A_1$, and branch lengths $b_1:b_5$ with the following topology.\par
+\begin{center}
+\begin{forest}
+  nice empty nodes,
+  for tree={
+    font=\scshape,
+  },
+  before typesetting nodes={
+    where n children=0{
+      +content=\makebox[0pt]{\phantom{$\sqrt{X}$}},
+    }{}
+  }
+  [
+    [$A_1$,edge label={node[midway,right,font=\scriptsize]{$b_5$}}
+      [$A_0$,,edge label={node[midway,left,font=\scriptsize]{$b_3$}}
+        [$S_0$,edge label={node[midway,left,font=\scriptsize]{$b_1$}}]
+ 	[$S_1$,edge label={node[midway,right,font=\scriptsize]{$b_2$}}]
+      ]
+      [$S_2$,edge label={node[midway,right,font=\scriptsize]{$b_4$}}]
+    ]
+    [$S_3$]
+  ]
+\end{forest}
+\end{center}
+
+
+Note that in the above tree, b5 represents the entire distance between $A_1$ and $S_3$.
+Consider that we can measure the pairwise mutation distance between any two extant species on this tree, represented by the Greek letter $\pi$. It follows that the pairwise distance between two extant species is equal to the sum of branch lengths separating those species on the phylogenetic tree shown above. Thus, we are able to produce the following system of linear equations.
+
+\begin{equation}
+\begin{split}
+b_1 + b_2 = \pi(S_0, S_1)\\
+b_1 + b_3 + b_4 = \pi(S_0, S_2)\\
+b_2+b_3+b_4 = \pi(S_1,S_2)\\
+b_1+b_3+b_5=\pi(S_0,S_3)\\
+b_2+b_3+b_5=\pi(S_1, S_3)\\
+b_4+b_5=\pi(S_2, S_3)
+\end{split}
+\end{equation}
+
+If our interest is to study the genome evolution of $S_0$, we can define the mutation distance as $b_1$, the distance between that extant species and its most recent common ancestor with $S_1$. We can then define the initial mutation distance as $b_3$, the distance along the previous branch between $A_0$ and its ancestor $A_1$.\par
+Below is the solved expression for $b_1$.
+\begin{equation}
+	\boxed{b_1 = \frac{\pi(S_0, S_1) + \pi(S_0, S_2) - \pi(S_1, S_2)}{2}}
+\end{equation}
+This result can be verified using the above system of equations and a bit of algebra.
+\begin{equation*}
+	b_1 = \frac{(b_1 + b_2) + (b_1 + b_3 + b_4) - (b_2 + b_3 + b_4)}{2}\\
+\end{equation*}
+\begin{equation*}
+	b_1 = \frac{2b_1}{2}
+\end{equation*}
+The equation for $b_3$ is as follows.
+\begin{equation}
+\boxed{b_3 = \frac{\pi(S_1,S_2) + \pi(S_0, S_3) + \pi(S_2, S_3) - \pi(S_0, S_1)}{2} - \pi(S_2, S_3)}
+\end{equation}
+We can also verify this expression using the same system of equations.
+\begin{equation*}
+	b_3 = \frac{(b_2 + b_3 + b_4) + (b_1 + b_3 + b_5) + (b_4 + b_5) - (b_1 + b_2)}{2} - (b_4 + b_5)
+\end{equation*}
+\begin{equation*}
+	b_3 = \frac{2b_3 + 2b_4 + 2b_5}{2} - b_4 - b_5
+\end{equation*}
+
+\section{Algorithm}
+For a given four-way alignment in multiFa format, $gonomics:multiFaAcceleration$ calculates $b_1$ and $b_3$ using pairwise mutation distance (defined as the number of SNPs and INDELs, where each INDEL counts as one mutation regardless of length) for each window of a user-specified window size. Windows may be every possible window of the genome, or may be restricted to a particular subset of the genome using the option $-searchSpaceBed$, which enables the input of a bed file which specifies the regions that should be considered. The option $-searchSpaceProportion$ enables the user to consider all windows in which at least a user-specified proportion of bases are within the searchSpace.
+
+We define $\textbf{v}$ as the normalized mutation velocity, or the normalized rate of mutation over the branch $b_1$. To calculate $\textbf{v}$, we calculate the average $b_1$ length $\overline{b_1}$ across all windows. For each window:
+\begin{equation*}
+	\textbf{v} = \frac{b_1}{\overline{b_1}}
+\end{equation*}
+
+Similarly, the normalized initial rate of mutation, or the normalized rate of mutation over the branch $b_3$, can be calculated as:
+\begin{equation*}
+	\textbf{v}_0 = \frac{b_3}{\overline{b_3}}
+\end{equation*}
+Where $\overline{b_3}$ is the average value of $b_3$ over all windows.\par
+$\textbf{v}$ and $\textbf{v}_0$ have intuitive numerical interpretations. If $\textbf{v} = 1$ for a particular window, the mutation rate in the branch $b_1$ is equal to the chromosome-wide average mutation rate. $\textbf{v} = 2$ would be found in a region evolving twice as quickly, and $\textbf{v} = 0.5$ in a region evolving at half the average rate. The same interpretations apply for $\textbf{v}_0$, the rate of evolution along the branch $b_3$.\par
+Finally, we define the quantity $\textbf{a}$, for acceleration, as the normalized change in mutation rate between branches branches $b1$ and $b3$:
+\begin{equation*}
+\textbf{a} = \textbf{v} - \textbf{v}_0
+\end{equation*}
+
+The quantity $\textbf{a}$ is equal to zero when the mutation rate along $b_1$ is equal to the mutation rate along $b_2$. As both $\textbf{v}$ and $\textbf{v}_0$ are normalized, this holds true even if $b_1$ and $b_3$ are not equal in absolute length, which will be the case when the extant species $S_0$, $S_1$, and $S_2$ are not separated by equal amounts of evolutionary time. Positive values for $\textbf{a}$ indicate accelerated regions, and negative values suggest regions under negative acceleration, in which a region evolved at a slower rate along $b_3$ than $b_1$.
+ 
+\end{document}

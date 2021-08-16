@@ -53,9 +53,10 @@ In the above expression, $w_{ij}$ represents a weight for error terms, and serve
 \begin{equation*}
 \begin{split}
 	w_{ij} = \frac{1}{D_{ij}^2} \mid D_{ij} \ne 0\\
-	w_{ij} = 0 \mid D_{ij} = 0
 \end{split}
 \end{equation*}
+
+When $D_{ij} = 0$, the weight term $w_{ij}$ approaches positive infinity. In this program, we approximate this limit by assigning an arbitrarily large number to $w_{ij}$. This value is $10^{20}$ by default, but can be controlled by the user with the option $zeroDistanceWeightConstant$.
 
 \section{Tree reduction and subtree optimization}
 In the alternating least squares approach top optimize Q described by Felsenstein, we must first reduce the above tree, which contains two internal nodes $A_0$ and $A_1$, to subtrees containing only one internal node. These subtrees, which we refer to as the left and right subtrees, are shown below.
@@ -94,7 +95,7 @@ Similarly, for the right subtree:
 	D_{3A_0} = \frac{w_{03}(D_{03} - b_4) + w_{13}(D_{13} - b_5)}{w_{03} + w_{13}} \mid w_{03} + w_{13} \ne 0
 \end{split}
 \end{equation*}
-When the denominator of any of these expressions is equal to zero, the corresponding distance will be set to zero as well.\par
+As distance is necessarily a non-negative quantity, and the weight constant is set to an arbitrarily large number when $D_{ij} = 0$, the denominator in the above equations can never be zero, and does not need to be otherwise constrained.\par
 A three-species subtree, which can be generalized to contain leaves $a$, $b$, and $c$ with the corresponding branch lengths $v_a$, $v_b$, and $v_c$ has the following optimal branch lengths:
 \begin{equation*}
 \begin{split}
@@ -104,9 +105,14 @@ v_c = \frac{(D_{ac} + D_{bc} - D_{ab})}{2}
 \end{split}
 \end{equation*}
 
-\section{Algorithm for branch length calculations}
-With these equations in hand, we can now describe the algorithm for computing optimal branch lengths for the four-species tree, which is performed by the helper function $alternatingLeastSquares$ in $multiFaAcceleration$. First, the set of output branch lengths $b1: b5$ are initialized such that each branch length is equal to 1. In each iteration, the tree is first pruned to the left subtree, and the branch lengths $b_1:b_3$ are then set to the optimal branch lengths for this subtree. Next, the tree is pruned into the right subtree, and the branches $b_3:b_5$ are then set to the optimal values for this subtree. Once both optimizations have occured, the value of Q is calculated for the current branch lengths and compared to the value of Q observed in the previous iteration. If the difference between the estimates of Q falls below a user-specified level of error $\epsilon$, the answer is returned. Otherwise, a new iteration is initiated. This heuristic will converge on a local minimum for Q and achieve stationarity in finite iterations.
+\section{Constraint for non-negative branch lengths}
+In some cases, the optimal set of branch lengths for the minimization of Q will include negative branch lengths. While this can be allowed by the user with the option $allowNegative$, this program constrains branch lengths to non-negative values by default. Briefly, when one or more branches from the 3-species subtrees are evaluated as negative values, they are set to 0. From Felsenstein 1997, if branch lengths $v_b$ or $v_c$ are set to zero in this fashion, the new optimal branch length for $v_a$, given that either of these terms are set to zero, can be approximated as:
+\begin{equation*}
+	\hat v_a = \frac{w_{ab}(D_{ab} - v_b) + w_{ac}(D_{ac} - v_c)}{w_{ab} + w_{ac}}
+\end{equation*}
 
+\section{Algorithm for branch length calculations}
+With these equations in hand, we can now describe the algorithm for computing optimal branch lengths for the four-species tree, which is performed by the helper function $alternatingLeastSquares$ in $multiFaAcceleration$. First, the set of output branch lengths $b1: b5$ are initialized such that each branch length is equal to 1. In each iteration, the tree is first pruned to the left subtree, and the branch lengths $b_1:b_3$ are then set to the optimal branch lengths for this subtree. Next, the tree is pruned into the right subtree, and the branches $b_3:b_5$ are then set to the optimal values for this subtree. Once both optimizations have occured, the value of Q is calculated for the current branch lengths and compared to the value of Q observed in the previous iteration. If the difference between the estimates of Q falls below a user-specified level of error $\epsilon$, the answer is returned. Otherwise, a new iteration is initiated. This heuristic will converge on a local minimum for Q and achieve stationarity in finite iterations. Due to the approximation used for non-negative branch lengths, it is possible stationarity will be achieved as the oscillation between two sets of branch lengths. In this case, we take the set of branch lengths associated with the lowest value of Q.
 \section{Genome-wide acceleration calculation}
 For a given four-way alignment in multiFa format, $gonomics:multiFaAcceleration$ calculates $b_1$ and $b_3$ using pairwise mutation distance (defined as the number of SNPs and INDELs, where each INDEL counts as one mutation regardless of length) for each window of a user-specified window size. Windows may be every possible window of the genome, or may be restricted to a particular subset of the genome using the option $-searchSpaceBed$, which enables the input of a bed file which specifies the regions that should be considered. The option $-searchSpaceProportion$ enables the user to consider all windows in which at least a user-specified proportion of bases are within the searchSpace.
 

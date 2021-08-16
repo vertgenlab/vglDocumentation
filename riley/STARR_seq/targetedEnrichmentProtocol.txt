@@ -1,0 +1,63 @@
+Targeted Enrichment of scSTARR-seq Reporter Reads
+
+Protocol prepared by Riley J. Mangan
+
+
+1. Begin with unfragmented cDNA from the 10x controller. If working with a core facility, make sure they save cDNA and do not just return the final library. Primer sequences are listed at the bottom of the protocol.
+2. PCR1 will use approximately 10-13ng of cDNA template. Prepare the following master mix per sample:
+	GC 10ul
+	dNTP 1ul
+	F1 2.5 (either F1.0 or F1.1)
+	R1_PCR1 2.5
+	DMSO 1.5
+	H20 32 - template volume
+3. Partition the appropriate volume of master mix to each sample tube and add the template and 0.5 ul phusion polymerase. Make sure to prepare a no-template control.
+4. Run the PCR with the following thermocycler conditions:
+	98C 1:00 1x
+	30x {
+		98C 0:10
+		62C 0:30
+		72C 1:00
+	}
+	72C 5:00 1x
+	4C Infinity
+5. Perform a 1x AMPure cleanup of the PCR1 product and elute in 50ul.
+6. PCR2 will use 2uL of the AMPure-purified product from the last step. Prepare the following master mix per sample:
+	GC 10ul
+	dNTP 1ul
+	F2 2.5ul
+	R1_P5 2.5ul
+	DMSO 1.5
+	H20 30
+7. Partition the appropriate volume of master mix to each sample tube and add 2ul of the AMPure-purified PCR1 product to each tube along with 0.5 ul Phusion polymerase.
+8. Run the PCR with the following thermocycler conditions:
+	98C 1:00 1x
+	12x {
+		98C 0:10
+		62C 0:30
+		72C 1:00
+	}
+	72C 5:00 1x
+	4C Infinity
+9. 1x AMPure cleanup of the PCR2 product, elute in 50ul.
+10. Prepare the following master mix for PCR3:
+	GC 10ul
+	dNTP 1ul
+	R1_P5 2.5ul
+	DMSO 1.5
+	H20 30
+11. Add 2ul of the AMPure-purified PCR2 product to each tube along with 0.5ul of Phusion polymerase. Add 2.5ul of the F3 primer to each library (will be different for each sample, as this primer contains the sample index). Run the reaction with the same PCR conditions as PCR2.
+12. Clean the final product with a 1x AMPure purification and quantify with the qubit and tape station.
+
+Primers used in this protocol are displayed in the table below.
+
+Name	Sequence
+tGFP_Outer_F1.0	ATGGCTAGCAAAGGAGAAGAACTCT
+tGFP_Outer_F1.1	GCTAGCAAAGGAGAAGAACTCTTCA
+tGFP_Inner_F2.0	GTCTCGTGGGCTCGGAGATGTGTATAAGAGACAGCTTGTTGAATTAGATTGATCT
+tGFP_Inner_F2.1	GTCTCGTGGGCTCGGAGATGTGTATAAGAGACAGATTCTTGTTGAATTAGATTGA
+R1_PCR1	ACACTCTTTCCCTACACGACG
+R1_P5	AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACG
+For F3, we have been using the Nextera XT Index Kit v2 i7 adapters. Make a note of which primer is used for each library (ex. N703 or N701).
+
+end of protocol

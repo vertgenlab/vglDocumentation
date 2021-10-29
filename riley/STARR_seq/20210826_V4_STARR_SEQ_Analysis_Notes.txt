@@ -1,0 +1,23 @@
+PART 1: Input Library Sequencing Analysis
+
+1. bcl2fastq
+	a. As the STARR-seq input was the only library on this lane, I hid the samplesheet by renaming it SampleSheet.csv.hidden.
+	b. I generated fastqs with the illumina bcl2fastq cmd, which can be loaded as a module on DCC. sbatch --mem=64G --wrap="bcl2fastq --use-bases-mask Y28,I8n2,n10,Y90 --create-fastq-for-index-reads"
+2. Next I aligned to the custom reference with the following shell script:
+	 /hpc/group/vertgenlab/riley/STARR_SEQ_ANALYSIS/V4/alignV4_Input.csh
+3. The number of reads aligning to each construct was then ascertained with the following script, located in the same directory: getRawCounts.csh.
+
+PART 2: Output Library Reporter Pooled UMI Counts
+
+1. bcl2fastq in the following directory:
+	/hpc/group/vertgenlab/LabDataSets/20210823_NovaSeq_V4_STARR_Seq/210820_A00201R_0482_AHJJ3NDRXY
+	Demultiplexing used the sample sheet located in that directory. 
+	Base mask as follows: Y28,I8n2,n10,Y90
+2. Next aligned all reads to the custom reference using the following script: /hpc/group/vertgenlab/riley/STARR_SEQ_ANALYSIS/V4/alignV4_Output_BWA.csh
+3. Next used the getReadNames.csh script, located in the same directory, to pull the names of all fastq entries aligning to reporter constructs.
+4. Used fastqFilterReporterReads.csh to generate a fastq file for each lane and library containing only reads that mapped to reporter constructs.
+5. Next script is /hpc/group/vertgenlab/riley/STARR_SEQ_ANALYSIS/V4/NamesFilteredFastq/mergeFastqLanes.csh, which combines the reporter reads from the two sequencing lanes so that we can collapse UMIs that appeared on separate lanes.
+6. Next we collapse UMIs using the script collapseUMIsFromMerged.csh. Output is directed to the dir Collapse/.
+7. In Collapse, run the script runBwa.csh to generate rawUmi sam files.
+8. Once the sam files are generated, use getRawUmiCounts.csh to generate the umi counts.
+9. Download the raw UMI counts from the output reporter reads along with the counts from the input library and format the data in microsoft excel. 

@@ -19,7 +19,7 @@ if __name__ == "__main__":
 
         # If GWAS SNP not already in dictionary, add it to both dictionaries with corresponding values
         if item[2] not in snp_dict:
-            snp_dict[item[2]] = [item[0], item[1], str(int(item[1]) + 1), item[2], "", "", ""]
+            snp_dict[item[2]] = [item[0], item[1], str(int(item[1]) + 1), item[2], "", ".", "", ""]
             ldsnp_distances[item[2]] = [abs(int(item[1]) - int(item[4]))]
 
         else:
@@ -36,14 +36,12 @@ if __name__ == "__main__":
 
         # Add this data into the snp_dict
         snp_dict[key][4] = str(num_snps)
-        snp_dict[key][5] = str(avg_distance)
-        snp_dict[key][6] = str(median_length)
+        snp_dict[key][6] = str(avg_distance)
+        snp_dict[key][7] = str(median_length)
 
     # Open output file and write data as tab-delimited bed file
     with open('ldblockdata_snpdistsummarystats.bed', 'w') as f:
         for key in snp_dict:
-            snp_dict[key][1] = str(snp_dict[key][1])
             snp_dict[key][2] = str(snp_dict[key][2])
-            snp_dict[key][4] = str(snp_dict[key][4])
             f.write('\t'.join(snp_dict[key]) + '\n')
         f.close()

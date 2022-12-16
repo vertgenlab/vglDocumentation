@@ -1,0 +1,23 @@
+==> 3761487outSamToWig3761487_4294967294.out <==
+/hpc/group/vertgenlab/crs70/myGoVersion1.18/go/bin/go
+samToWig.sh where input was: /hpc/group/vertgenlab/crs70/processingSeqData/202205cutRunZDna/hg38H3K4me3.mem.sorted.bam.sam, /hpc/group/vertgenlab/crs70/refGenomes/hg38/hg38.chrom.sizes, H3K4me3.hg38.wig
+
+==> 3761641outSamToWig3761641_4294967294.out <==
+/hpc/group/vertgenlab/crs70/myGoVersion1.18/go/bin/go
+samToWig.sh where input was: /hpc/group/vertgenlab/crs70/processingSeqData/202205cutRunZDna/hg38H3K4me3.mem.sorted.bam.sam, /hpc/group/vertgenlab/crs70/refGenomes/hg38/hg38.chrom.sizes, H3K4me3.hg38.wig
+
+==> 3765728outSamToWig3765728_4294967294.out <==
+/hpc/group/vertgenlab/crs70/myGoVersion1.18/go/bin/go
+samToWig.sh where input was: /hpc/group/vertgenlab/crs70/processingSeqData/202205cutRunZDna/hg38IgG.mem.sorted.bam.sam, /hpc/group/vertgenlab/crs70/refGenomes/hg38/hg38.chrom.sizes, IgG.hg38.wig
+
+==> 3765910outSamToWig3765910_4294967294.out <==
+/hpc/group/vertgenlab/crs70/myGoVersion1.18/go/bin/go
+samToWig.sh where input was: /hpc/group/vertgenlab/crs70/processingSeqData/202205cutRunZDna/hg38Z22.mem.sorted.bam.sam, /hpc/group/vertgenlab/crs70/refGenomes/hg38/hg38.chrom.sizes, Z22.hg38.wig
+
+==> 3770521outSamToWig3770521_4294967294.out <==
+/hpc/group/vertgenlab/crs70/myGoVersion1.18/go/bin/go
+samToWig.sh where input was: /hpc/group/vertgenlab/crs70/processingSeqData/202205cutRunZDna/hg38ab2079.mem.sorted.bam.sam, /hpc/group/vertgenlab/crs70/refGenomes/hg38/hg38.chrom.sizes, ab2079.hg38.wig
+
+==> 3775192outSamToWig3775192_4294967294.out <==
+/hpc/group/vertgenlab/crs70/myGoVersion1.18/go/bin/go
+samToWig.sh where input was: /hpc/group/vertgenlab/crs70/processingSeqData/202205cutRunZDna/hg38mixedMethodsZ22.mem.sorted.bam.sam, /hpc/group/vertgenlab/crs70/refGenomes/hg38/hg38.chrom.sizes, mixedMethodsZ22.hg38.wig

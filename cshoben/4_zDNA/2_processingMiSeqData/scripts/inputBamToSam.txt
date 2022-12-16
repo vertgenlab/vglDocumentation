@@ -1,0 +1,19 @@
+==> outSam3760271.out <==
+samtools 1.10
+/var/spool/slurmd/job3760271/slurm_script  where input was: /hpc/group/vertgenlab/crs70/processingSeqData/202205cutRunZDna/hg38H3K4me3.mem.sorted.bam
+
+==> outSam3761085.out <==
+samtools 1.10
+/var/spool/slurmd/job3761085/slurm_script  where input was: /hpc/group/vertgenlab/crs70/processingSeqData/202205cutRunZDna/hg38IgG.mem.sorted.bam
+
+==> outSam3761090.out <==
+samtools 1.10
+/var/spool/slurmd/job3761090/slurm_script  where input was: /hpc/group/vertgenlab/crs70/processingSeqData/202205cutRunZDna/hg38Z22.mem.sorted.bam
+
+==> outSam3761091.out <==
+samtools 1.10
+/var/spool/slurmd/job3761091/slurm_script  where input was: /hpc/group/vertgenlab/crs70/processingSeqData/202205cutRunZDna/hg38ab2079.mem.sorted.bam
+
+==> outSam3761093.out <==
+samtools 1.10
+/var/spool/slurmd/job3761093/slurm_script  where input was: /hpc/group/vertgenlab/crs70/processingSeqData/202205cutRunZDna/hg38mixedMethodsZ22.mem.sorted.bam

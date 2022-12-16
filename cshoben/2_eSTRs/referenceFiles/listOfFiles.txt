@@ -1,0 +1,10 @@
+allPromoterEstrs.tsv
+collapseEditedHg19.hipstr_reference.txt
+gtexEstrTissues.txt
+hg19.hipstr_reference.bed
+listOfFiles.txt
+mart_export.txt
+README_referenceFiles.tsv
+totalEstrStudied.txt
+tsvEnsemblMartGeneTssHg19.bed
+uniqSeqHg19.hipstr_reference.txt

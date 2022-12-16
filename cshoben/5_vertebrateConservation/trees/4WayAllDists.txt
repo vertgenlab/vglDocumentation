@@ -1,0 +1,7 @@
+Human	Mouse	0.502391
+Human	Chicken	1.240125
+Human	Stickleback	1.854788
+Mouse	Chicken	1.450700
+Mouse	Stickleback	2.065363
+Chicken	Stickleback	1.882791
+(total)	-	2.845335

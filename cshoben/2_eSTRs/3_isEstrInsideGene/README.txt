@@ -1,0 +1,1 @@
+I did not complete this task and would need to ensure that the input bed is truly correct and that the new version of this gonomics program (now called bedMinimumDistanceName.go) is able to produce a correct answer. The gonomics program was intended to understand if my eSTR was upstream or downstream of the TSS for its corresponding gene. 

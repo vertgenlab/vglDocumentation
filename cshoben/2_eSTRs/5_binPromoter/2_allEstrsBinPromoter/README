@@ -1,0 +1,108 @@
+#!/bin/bash
+#SBATCH -J 
+
+#This is not an executable file!
+#All things done in this folder were via command line. Here are the notes. 
+
+
+## Update 12/14/2022. The code below has been trasnferred into scripts. Saving this file for reference. 
+
+
+Plan to use gonomics: sequelOverlap cmd
+selectFile genome wide, all genes with all promoter coordinates.
+input file
+my STR bed file for the HipSTR reference or my allEstr file
+Make bed file with promoter coordinates for the hg19 ensembl genes.
+take the TSS file and subtract 2Kb from the start coord and add 2Kb to the end coord.
+$ cat tsvEnsemblMartGeneTssHg19.bed | awk '{print $1, $2-2000, $3+2000, $4}' | tr " " "\t" > tsv2kbPromoterEnsembleGeneHg19.bed
+
+
+
+Make bed file for HipSTR reference
+each STR start and end coordinates
+
+
+crs70@dcc-core-252  /hpc/group/vertgenlab/crs70/publicData/eSTRs/binPromoterNonPromoter $ cat hg19.hipstr_reference.bed | awk '{ print $1, $2, $3, $7}' | tr " " "\t" > hg19HipsterReference.bed
+
+
+Make bed file for the allEstr data (repeat code above)
+
+Run through the sequelOverlap, all output are my promoters.
+figured out I can use two input bed files.
+
+
+crs70@dcc-core-252  /hpc/group/vertgenlab/crs70/publicData/eSTRs/binPromoterNonPromoter $ ~/go/bin/sequelOverlap tsv2kbPromoterEnsembleGeneHg19.bed hg19HipsterReference.bed hipstrPromoterSequelOverlapOutput.bed
+crs70@dcc-core-252  /hpc/group/vertgenlab/crs70/publicData/eSTRs/binPromoterNonPromoter $ head hipstrPromoterSequelOverlapOutput.bed
+chr1	10001	10468	AACCCT
+chr1	26454	26465	GT
+chr1	28589	28603	T
+
+
+
+wc -l on sequelOverlap output file is my promoter count
+wc -l on original file minus the value from wc -l on sequalOverlap are non-promoter
+
+crs70@dcc-core-252  /hpc/group/vertgenlab/crs70/publicData/eSTRs/binPromoterNonPromoter $ wc -l hg19HipsterReference.bed
+1620030 hg19HipsterReference.bed
+crs70@dcc-core-252  /hpc/group/vertgenlab/crs70/publicData/eSTRs/binPromoterNonPromoter $ wc -l hipstrPromoterSequelOverlapOutput.bed
+193276 hipstrPromoterSequelOverlapOutput.bed
+
+
+193,276 in promoter region
+1,426,754 non-promoter
+
+
+If I want a breakdown by the repeat type, would need to repeat the steps above but input files that are sorted on the sequence?
+then can cut on seq column, uniq -c the output to determine the number of promoters for each seq type.
+cut and uniq -c on the original file, subtract the total promoters, and this is my number of non-promoters.
+
+
+
+
+crs70@dcc-core-252  /hpc/group/vertgenlab/crs70/publicData/eSTRs/binPromoterNonPromoter $ cat hg19HipsterReference.bed | sort -k 4 > sortedSeqHg19HipstrReference.bed
+
+crs70@dcc-core-252  /hpc/group/vertgenlab/crs70/publicData/eSTRs/binPromoterNonPromoter $ cat sortHipstrPromoterSequelOverlapOutput.bed | cut -f 4 | tr "/" "\n" | sort | uniq -c | head
+  50986 A
+
+crs70@dcc-core-252  /hpc/group/vertgenlab/crs70/publicData/eSTRs/binPromoterNonPromoter $ cat sortHipstrPromoterSequelOverlapOutput.bed | cut -f 4 | tr "/" "\n" | sort | uniq -c > seqCountSortHipstrPromoterSequelOverlapOutput.txt
+crs70@dcc-core-252  /hpc/group/vertgenlab/crs70/publicData/eSTRs/binPromoterNonPromoter $ head seqCountSortHipstrPromoterSequelOverlapOutput.txt
+  50986 A
+   1128 AAAAAC
+    659 AAAAAG
+    834 AAAAAT
+
+
+I will want to join these files with the counts, but ensure that if it is missing, the column has a “0”.
+
+
+crs70@dcc-core-252  /hpc/group/vertgenlab/crs70/publicData/eSTRs/binPromoterNonPromoter $ join -o 0,1.2,2.2 -e 0 -a1 -a2 flippedCollapseHg19HipRef.txt flippedSeqCountSortHipPromoterSequelOverlapOut.txt > joinStrTotalHipstrTotalPromoter.txt
+
+Make column for the non-promoter
+
+cat
+crs70@dcc-core-252  /hpc/group/vertgenlab/crs70/publicData/eSTRs/binPromoterNonPromoter $ cat joinStrTotalHipstrTotalPromoter.txt | awk '{ print $1, $2, $3, ($2-$3)}' > joinStrTotalHipstrTotalPromoterTotalNonPromoter.txt
+
+
+
+
+
+
+
+SAVING CODE BELOW FOR USE
+filename='gtexEstrTissues.txt'
+echo Start
+while read p; do
+	cd /work/crs70/caviarTissueCompare
+	awk '{if ($26 >= 0.3) print $0}' /hpc/group/vertgenlab/crs70/publicData/eSTRs/raw/master/"$p"_master.tab > "$p"TempCaviar_master.txt
+	cut -f 9 "$p"TempCaviar_master.txt | grep -v motif > "$p"tempForwardRepeat.txt
+	cut -f 10 "$p"TempCaviar_master.txt | grep -v motif > "$p"tempReverseRepeat.txt
+	cat "$p"tempForwardRepeat.txt "$p"tempReverseRepeat.txt | sort | uniq -c | sort -k2 > "$p"TempCaviarFRCollapseDNA.txt
+	join -1 2 -2 2 /hpc/group/vertgenlab/crs70/publicData/eSTRs/caviarTissueCompare/collapseHg19.hipstr_reference.txt "$p"TempCaviarFRCollapseDNA.txt > tempJoinCaviarHg19Hipstr"$p"EstrCounts.txt
+	awk -v p=$p '{print $1, $2, $3, $3/$2, $5=p}' tempJoinCaviarHg19Hipstr"$p"EstrCounts.txt > tempFractionHipstr"$p".txt 
+		
+done < "$filename"
+echo loopDone
+cat tempFractionHipstr* > tempAllTissueFractionHipstr.txt
+cat tempAllTissueFractionHipstr.txt | sort -k3 -g > /hpc/group/vertgenlab/crs70/publicData/eSTRs/caviarTissueCompare/allTissueFractionHipstr.txt 
+
+echo End

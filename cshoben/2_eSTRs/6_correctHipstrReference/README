@@ -1,0 +1,8 @@
+
+collapseEditedHg19.hipstr_reference.txt is the final edited version that adds non-simplified repeats like AACAAC. The eSTR data contains both AAC and AACAAC sequences. In order to have a proper normalization I have added the AACAAC where the counts based on the percentage of eSTRs that are AACAAC. For example, there are 11131 AAC in the HipSTR reference. In the eSTR data there are 6310 AAC and 53 AACAAC, making a total of 6310+53=6363 STR where they simplify to AAC. AACAAC represent 53/6363 or ~0.8% of the total. I decided to convert 0.8% of the HipSTR AAC strs into AACAAC, so I added a line to the reference file where the sequence was AAC and the count was 93 (0.8% * 11131). I then subtracted 93 from the 11131 count and updated the AAC count to 11038.
+
+The edits were done by hand in vim. 
+
+See this google sheet for more info on which lines were edited: https://docs.google.com/spreadsheets/d/1NoBoHJg1vPCkJxdA2v5YID-SOaVImU2EoPZthQ0S3-w/edit?usp=sharing
+
+ 

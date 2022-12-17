@@ -1,0 +1,3 @@
+   ACTIONS      QUERY   SCORE START   END QSIZE IDENTITY  CHROM             STRAND  START       END   SPAN
+----------------------------------------------------------------------------------------------------------
+browser details YourSeq   299     2   486   500    82.6%  chr1a             +      832352    832862    511

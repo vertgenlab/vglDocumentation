@@ -1,0 +1,7 @@
+   ACTIONS      QUERY   SCORE START   END QSIZE IDENTITY  CHROM       STRAND  START       END   SPAN
+----------------------------------------------------------------------------------------------------
+browser details YourSeq   500     1   500   500   100.0%  CP068269.2  +      108081    108580    500
+browser details YourSeq   474     1   500   500    97.4%  CP068276.2  -   113927447 113927946    500
+browser details YourSeq   362     1   500   500    91.5%  CP068269.2  -    80480352  80480883    532
+browser details YourSeq   361     1   500   500    91.5%  CP068269.2  -    42170328  42170859    532
+browser details YourSeq   360     1   500   500    92.3%  CP068269.2  -    77035887  77036417    531

@@ -1,0 +1,5 @@
+all these scripts need their awk corrected for the OFS and FS. Also, this was filtering on a value that was not the caviar score. Not something we are moving forward with so deleting output files, they can be recreated.
+
+Note that the gonomics program has since been re-written and the name has changed to 'bedMinimumDistanceName.go'. Will need to rewrite scripts to accomodate new functionality. 
+
+Last updated 12/09/2022

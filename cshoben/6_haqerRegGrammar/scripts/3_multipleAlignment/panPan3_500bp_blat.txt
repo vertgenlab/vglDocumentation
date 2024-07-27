@@ -1,0 +1,22 @@
+   ACTIONS      QUERY   SCORE START   END QSIZE IDENTITY  CHROM                 STRAND  START       END   SPAN
+--------------------------------------------------------------------------------------------------------------
+browser details YourSeq   372     1   500   500    89.6%  chrUn_NW_023259843v1  -     1535217   1535743    527
+browser details YourSeq   370     1   500   500    92.1%  chrUn_NW_023256909v1  -       36184     36716    533
+browser details YourSeq   370     1   500   500    92.1%  chr2B                 -   129378286 129378820    535
+browser details YourSeq   370     1   500   500    92.1%  chrUn_NW_023256923v1  +       50521     51050    530
+browser details YourSeq   370     1   500   500    92.7%  chr2A                 +    88651371  88651903    533
+browser details YourSeq   369     1   500   500    91.7%  chr18                 -    74037355  74037886    532
+browser details YourSeq   368     1   500   500    92.1%  chr2B                 -   129278963 129279498    536
+browser details YourSeq   368     1   500   500    92.1%  chr16                 -    70842836  70843372    537
+browser details YourSeq   367     1   500   500    92.3%  chrUn_NW_023256137v1  -        5880      6408    529
+browser details YourSeq   366     1   500   500    92.2%  chr2B                 +       27006     27535    530
+browser details YourSeq   364     1   500   500    92.2%  chrUn_NW_023259124v1  +       24671     25203    533
+browser details YourSeq   363     1   500   500    91.9%  chrUn_NW_023259293v1  +        3442      3967    526
+browser details YourSeq   362     1   500   500    91.9%  chrUn_NW_023257229v1  +       13230     13760    531
+browser details YourSeq   362     1   500   500    91.7%  chrUn_NW_023256626v1  +        3453      3982    530
+browser details YourSeq   362     1   500   500    90.3%  chrUn_NW_023255747v1  +       30733     31263    531
+browser details YourSeq   360     1   500   500    91.5%  chr9                  -   109359847 109360382    536
+browser details YourSeq   360     1   500   500    91.7%  chr18                 -    74090319  74090842    524
+browser details YourSeq   358     1   500   500    91.5%  chr2B                 +      567025    567554    530
+browser details YourSeq   340     1   500   500    90.8%  chrUn_NW_023258393v1  +       25228     25746    519
+browser details YourSeq   328     1   487   500    91.5%  chrUn_NW_023256804v1  +       41171     41684    514

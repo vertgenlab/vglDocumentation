@@ -1,0 +1,12 @@
+collapseEditedHg19.hipstr_reference.txt
+collapseHg19.hipstr_reference.txt
+gtexEstrTissues.txt
+hg19.hipstr_reference.bed
+listOfFiles.txt
+noSexCountStrHg19HipstrReference.txt
+README.txt
+simpleRepeatsHg19CollapsedSorted.txt
+simpleRepeatsHg19.gz
+tempWorkingOnNumberLineDiff.txt
+totalEstrStudied.txt
+totalSeqEstrStudied.txt

@@ -1,0 +1,3 @@
+These scripts were used during my initial exploration for patterns in the eSTR dataset. This was before I discovered my misuse of awk (not prelabeling the OFS and FS) and determing that the original raw data from the publication had blanks (which were mishandled by awk in my original scripts and caused the incorrect parsing. 
+Be sure to update the awk command on these exe before reuse.
+Updated 12/12/22 - Chelsea

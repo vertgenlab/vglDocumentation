@@ -1,0 +1,1 @@
+1MSRR8119824 mm10 /hpc/group/vertgenlab/crs70/refGenomes/mm10/mm10.fa /hpc/group/vertgenlab/crs70/scripts/atacSeqTissueCompareRepeatCoordinates/1MReadsSRR8119824_1.fastq.gz /hpc/group/vertgenlab/crs70/scripts/atacSeqTissueCompareRepeatCoordinates/1MReadsSRR8119824_2.fastq.gz

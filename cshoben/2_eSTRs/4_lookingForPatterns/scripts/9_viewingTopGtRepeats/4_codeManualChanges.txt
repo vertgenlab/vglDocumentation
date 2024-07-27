@@ -1,0 +1,8 @@
+$ vim tempChr11_297578.bed
+
+## Then I replaced the spaces between columns 4 through 7 in order to retain this information in the bed's proper name field. 
+
+$ cp tempChr11_297578.bed chr11_297578EstrCaviar.bed
+
+$ cat chr11_297578EstrCaviar.bed | tr " " "\t" > bedChr11_297578EstrCaviar.bed
+

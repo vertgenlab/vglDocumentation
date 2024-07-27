@@ -1,0 +1,3 @@
+ensemblHg19GeneStarts.tsv was downloaded directly from the ensembl website. It includes the chrom name, gene start, gene stable ID, and strand. 
+http://grch37.ensembl.org/biomart/martview/604c206bee0b1913703449c93f32cdee
+I used biomart to download the file and scp to upload it to DCC

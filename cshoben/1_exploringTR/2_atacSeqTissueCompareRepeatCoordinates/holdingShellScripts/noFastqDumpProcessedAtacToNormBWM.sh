@@ -1,0 +1,61 @@
+#!/bin/bash
+#SBATCH -J sraAtacStrTissueCompare
+#SBATCH -o %AoutNoDump%A.out
+#SBATCH -e %AerrNoDump%A.err
+#SBATCH --mem 10G
+#SBATCH --mail-user=crs70@duke.edu
+#SBATCH --mail-type=ALL
+
+## Use $ head -20 to see all instructions for necessary input. If not including an input variable, must remove all that come after (aka, cant only skip $7 because $8 will become $7).
+
+## $1 is SRR number 
+## $2 ref genome shorthand
+## $3 full path to reference genome
+## $4 path shortend first fastq
+## $5 path shortened second fastq
+## $6 full path to ref.chrom.sizes
+## $7 full path to tandemRepeat bed file name (have in same folder as script)
+
+## $6 sex (M/F)
+## $7 tissue type
+## $8 development or adult? (dev/ad)
+## $9 body area 
+
+
+## Final output: (6 files), 2 fastq, 1 sam, 1 wig, 1 bedMW, 1 normBMW 
+
+## Code for downloading based on SRR number
+## module load SRA-Toolkit/2.9.6-1
+## fastq-dump --split-files --gzip $1
+## echo 'fastq-dump done'
+
+## Code for decompressing the downloaded files
+## gunzip $1_1.fastq.gz
+## gunzip $1_2.fastq.gz 
+#echo 'gunzips done'
+#
+### Code for running bwa alignment and output to sam file.
+module load BWA/0.7.17
+module load samtools/1.10
+bwa mem -t 10 $3 '<zcat $4 $5' > $1$2.mem.sam
+samtools sort ./$1$2.mem.sam > $1$2.mem.sorted.sam
+## samtools view ./$1$2.mem.sorted.bam > $1$2.mem.sorted.sam
+echo "bwa done"
+#
+## MESSED WITH THE ARG VALUES SO UPDATE THEM/DOUBLE CHECK ALL THE CODE
+
+### Code for creating the wig file.
+#/home/crs70/go/bin/samToWig ./$1$2.mem.sorted.sam /data/lowelab/RefGenomes/$2/$3 $1$2.wig
+#echo "samToWig is done where input was: $1. $2"
+#
+### Code for generating the bedMaxWig file based on the tandem repeat coordinates input via $4
+#/home/crs70/go/bin/bedMaxWig ./$4 ./$1$2.wig /data/lowelab/RefGenomes/$2/$3 $1$2BedMaxWig.bed
+#echo "bedMaxWig is done where input was: $4 $1$2.wig /data/lowelab/RefGenomes/$2/$3 $1$2BedMaxWig.bed"
+#
+### Code for normalizing the bedMaxWig values, based on total number of wig hits. 
+#total=$(awk '{s+=$1}END{print s}' $1$2.wig)
+#echo "total wig hits is $total"
+#awk -v total=$total '{print $1, $2, $3, $7/total}' $1$2BedMaxWig.bed > $1$2$4$5$6$7$8NormBedMaxWig.bed
+#echo "normalizing BMW is complete, input was: $1$2.wig for the total to divide by, and $1$2BedMaxWig.bed for the bed file to be manipulated."
+#
+

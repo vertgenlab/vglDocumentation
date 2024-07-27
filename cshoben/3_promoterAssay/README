@@ -1,0 +1,5 @@
+Used SRR12511075 data to explore expression in K562 cells. This is RNA-seq data. 
+Will need to redownload these fastq files. 
+
+Looked at A549 hg38 SRR13952627 rna-seq data. A bam of this data was removed. 
+

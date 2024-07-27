@@ -1,0 +1,11 @@
+==> outSamOutAlignToGenome27020383_4294967294.out <==
+samtools 1.10
+/var/spool/slurmd/job27020383/slurm_script  where input was: mm10 /work/crs70/processingISeqData/zdna/Long_Z22/S2_S2_L001_R1_001.fastq.gz /work/crs70/processingISeqData/zdna/Long_Z22/S2_S2_L001_R2_001.fastq.gz LongZDna
+
+==> outSamOutAlignToGenome27044700_4294967294.out <==
+samtools 1.10
+/var/spool/slurmd/job27044700/slurm_script  where input was: mm10 /hpc/group/vertgenlab/crs70/data/20211213_cutAndRun_iSeq_crs_zDna/processingISeqData/zdna/short_H3K4me3-pos-ctrl-500k/S3_S3_L001_R1_001.fastq.gz /hpc/group/vertgenlab/crs70/data/20211213_cutAndRun_iSeq_crs_zDna/processingISeqData/zdna/short_H3K4me3-pos-ctrl-500k/S3_S3_L001_R2_001.fastq.gz ShortH3K4me3
+
+==> outSamOutAlignToGenome27044768_4294967294.out <==
+samtools 1.10
+/var/spool/slurmd/job27044768/slurm_script  where input was: mm10 /hpc/group/vertgenlab/crs70/data/20211213_cutAndRun_iSeq_crs_zDna/processingISeqData/zdna/short_Z22/S4_S4_L001_R1_001.fastq.gz /hpc/group/vertgenlab/crs70/data/20211213_cutAndRun_iSeq_crs_zDna/processingISeqData/zdna/short_Z22/S4_S4_L001_R2_001.fastq.gz ShortZ22

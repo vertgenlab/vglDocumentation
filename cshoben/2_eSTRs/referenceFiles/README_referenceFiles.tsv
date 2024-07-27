@@ -1,0 +1,7 @@
+gtexEstrTissues.txt	all tissue types in the eSTR study. Single column list
+simpleRepeatsHg19.gz	table browser repeats from UCSC
+hg19.hipstr_reference.bed	download at: http://webstr.ucsd.edu/downloads
+mart_export.txt	ensembl TSS sites original file downloaded from ensembl
+tsvEnsemblMartGeneTssHg19.bed	the mart_export.txt file above manipulated into a proper bed
+collapseEditedHg19.hipstr_reference.txt	hipstr reference where simple repeats are expanded out and it is collapsed into counts. This file was edited by hand. It is sorted
+totalEstrStudied.txt	All eSTRs listed with data in the eSTR files. This is their counts and is sorted.uniqSeqHg19.hipstr_reference.txt	all unique seq in the hipstr reference as a single column 

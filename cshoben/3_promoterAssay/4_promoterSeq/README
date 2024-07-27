@@ -1,0 +1,1 @@
+HTATIP2 and MGST2 are genes containing GT repeats in their promoter regions. These GT repeats had caviar scores greater than 0.9. I grabbed these promoter sequences to hand check if they show expression in A549 or K562 cells. Both did! Making both candidates to use as the promoter in my plasmid construct. 

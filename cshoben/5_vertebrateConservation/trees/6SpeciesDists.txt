@@ -1,0 +1,16 @@
+Human	Chimp	0.013390
+Human	Mouse	0.502391
+Human	Chicken	1.240125
+Human	Medaka	2.105345
+Human	Stickleback	1.854788
+Chimp	Mouse	0.502681
+Chimp	Chicken	1.240415
+Chimp	Medaka	2.105635
+Chimp	Stickleback	1.855078
+Mouse	Chicken	1.450700
+Mouse	Medaka	2.315920
+Mouse	Stickleback	2.065363
+Chicken	Medaka	2.133348
+Chicken	Stickleback	1.882791
+Medaka	Stickleback	0.743383
+(total)	-	3.349145

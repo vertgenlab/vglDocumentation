@@ -1,0 +1,10 @@
+Notes on this folder/goal are in the google doc "eSTR methods 2"
+
+Tried to pull ensembl TSS and use on UCSC but it is miserable. Going to pull the UCSC ensemble gene file from the hg19 release and see if using that is easier. 
+corresponding google doc address: https://docs.google.com/document/d/1vH76LHC4kEp3joEN4vZ2ZIo4-7lGB4tARCa2ToR0_oQ/edit?usp=sharing
+
+
+Files previous used:
+
+hg19.ensGene.gtf	downloaded from refGenomes
+

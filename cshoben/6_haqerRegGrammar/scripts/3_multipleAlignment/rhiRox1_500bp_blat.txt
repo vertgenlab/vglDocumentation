@@ -1,0 +1,3 @@
+   ACTIONS      QUERY   SCORE START   END QSIZE IDENTITY  CHROM       STRAND  START       END   SPAN
+----------------------------------------------------------------------------------------------------
+browser details YourSeq   299     2   489   500    88.2%  KN295722v1  -     2250197   2250712    516

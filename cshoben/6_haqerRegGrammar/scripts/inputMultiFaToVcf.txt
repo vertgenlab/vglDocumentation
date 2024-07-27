@@ -1,0 +1,5 @@
+==> 10214976outMultiFaToVcf10214976_4294967294.out <==
+multiFaToVcf.sh where input was: ../../haqerRegGrammar/multiAlignmentPrimer5to11.fa, ., p5p11.vcf
+
+==> 6541541outMultiFaToVcf6541541_4294967294.out <==
+multiFaToVcf.sh where input was: /hpc/group/vertgenlab/crs70/haqerRegGrammar/humanHcaStr012.fa, chr9, humanHcaStr012.vcf

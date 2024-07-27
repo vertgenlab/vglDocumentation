@@ -1,0 +1,3 @@
+mkdir: created directory '/work/crs70/scripts/alignSeqToGenome/bamOutAlignToGenomehg38_K562_rnaSeq'
+samtools 1.10
+/var/spool/slurmd/job27607114/slurm_script  where input was: /hpc/group/vertgenlab/RefGenomes/hg38/hg38.fa /hpc/group/vertgenlab/crs70/publicData/K562/rnaSeq/SRR12511075_1.fastq.gz /hpc/group/vertgenlab/crs70/publicData/K562/rnaSeq/SRR12511075_2.fastq.gz hg38_K562_rnaSeq ; file output /work/crs70/scripts/alignSeqToGenome/bamOutAlignToGenomehg38_K562_rnaSeq/

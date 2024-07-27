@@ -1,0 +1,4 @@
+normalApproximate	segDups/bonobo.segDup.bed	aqer/bonobo.bed	3265	3395	518	1.000000	119.340051	4.340538	4.340882e-302	1.000000e+00
+normalApproximate	segDups/chimpanzee.segDup.bed	aqer/chimpanzee.bed	6353	3380	646	1.000000	221.377025	2.918099	2.580943e-192	1.000000e+00
+normalApproximate	segDups/gorilla.segDup.bed	aqer/gorilla.bed	2318	2469	148	1.000000	57.094326	2.592202	4.350276e-34	1.000000e+00
+normalApproximate	segDups/human.segDup.bed	aqer/human.bed	6103	3268	1004	1.000000	209.294910	4.797059	0.000000e+00	1.000000e+00

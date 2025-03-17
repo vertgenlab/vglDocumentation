@@ -1,0 +1,16 @@
+#!/bin/bash -ef
+
+echo "CellType" > specificDeathStats.tsv| echo "$(cat birthNodes/atlasStatsMerged.txt | cut -f1)" >> specificDeathStats.tsv 
+
+for s in $(cat birthNodes/hg38.speciesNode.list)
+do
+	species="${s%.*}"
+	node="${s##*.}"
+	if [[ $species != "petMar3" ]]; then
+		echo $species
+		paste specificDeathStats.tsv <(awk -v s="$species" '{if (NR==1) print s} {if ($2==s) print $5}' allDeathStats.specific.tsv) > tmp.out
+		mv tmp.out specificDeathStats.tsv
+	fi
+
+done
+

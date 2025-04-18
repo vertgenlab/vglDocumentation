@@ -3,12 +3,11 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=12
-#SBATCH --mail-type=ALL
-#SBATCH --mail-user=eric.au@duke.edu
 #SBATCH --parsable
 #SBATCH --job-name=hic_bwa_mapping01
 echo "Define Draft Assembly"
 module load samtools bwa perl/5.10.1-fasrc04 java/1.8.0_45-fasrc01
+# filter_five_end.pl is from Arima for use with their HiC data
 FILTER='/data/lowelab/edotau/software/mapping_pipeline/filter_five_end.pl'
 input=$1
 out=$2

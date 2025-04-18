@@ -2,7 +2,6 @@
 #SBATCH --mem=32G
 #SBATCH --cpus-per-task=1 --ntasks=12
 #SBATCH --nodes=1
-#SBATCH --mail-type=FAIL --mail-user=eric.au@duke.edu
 #SBATCH --job-name=BLASTqc
 set -e
 #Takes query fasta file and name of text file for output blast results
